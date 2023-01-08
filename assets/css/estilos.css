@@ -1,0 +1,330 @@
+:root {
+	--primario: #4143A6;
+	--gris-claro: rgb(255, 255, 255);
+	--sombra: 0 0 13px 0 rgba(185,185,185, .25);
+    --bs-danger: #dc3545;
+
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #f8fafb;
+	font-family: 'Roboto', sans-serif;
+}
+
+main {
+	max-width: 1000px;
+	width: 90%;
+	margin: 40px auto;
+}
+
+.titulo {
+	color: #3a3a3a;
+	font-weight: 700;
+	text-align: center;
+	margin: 30px 0;
+}
+
+/*! =================================================*/
+/*! ============= Categorias ============= */
+/*! =================================================*/
+.categorias {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	margin-bottom: 60px;
+}
+
+.categoria {
+	cursor: pointer;
+	text-align: center;
+	padding: 20px;
+	border-radius: 10px;
+	background: rgb(19, 19, 61);
+	font-weight: 700;
+	color: var(--gris-claro);
+	border: 2px solid transparent;
+	transition: .3s ease all;
+}
+
+.categoria:hover {
+	box-shadow: var(--sombra);
+	color: #000;
+}
+
+.categoria:hover path {
+	fill: var(--primario);
+}
+
+.categoria svg {
+	width: 64px;
+	margin-bottom: 10px;
+}
+
+.categoria path {
+	fill: var(--gris-claro);
+	transition: .3s ease all;
+}
+
+.categoria.activa {
+	border: 2px solid var(--primario);
+	color: #000;
+}
+
+.categoria.activa path {
+	fill: var(--primario);
+}
+
+/*! =================================================*/
+/*! ============= Contenedor Preguntas ============= */
+/*! =================================================*/
+.contenedor-preguntas {
+	display: none;
+	grid-template-columns: 1fr;
+	gap: 40px;
+}
+
+.contenedor-preguntas.activo {
+	display: grid;
+}
+
+
+
+.contenedor-pregunta {
+	background: rgb(19, 19, 61);
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: .3s ease all;
+	cursor: pointer;
+}
+
+.contenedor-pregunta:hover {
+	box-shadow: var(--sombra);
+}
+
+.contenedor-pregunta.activa {
+	border: 2px solid var(--primario);
+}
+
+/*! =================================================*/
+/*! ============= Preguntas ============= */
+/*! =================================================*/
+.pregunta {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pregunta img {
+	width: 14px;
+}
+
+.respuesta {
+	color: #808080;
+	line-height: 30px;
+	max-height: 0;
+	opacity: 0;
+	transition: .3s ease all;
+}
+
+.contenedor-pregunta.activa .respuesta {
+	opacity: 1;
+	margin-top: 20px;
+}
+
+.contenedor-pregunta.activa img {
+	transform: rotate(45deg);
+}
+
+/*! =================================================*/
+/*! ============= Responsive Design ============= */
+/*! =================================================*/
+@media screen and (max-width: 820px){
+	.categorias {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.categoria {
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+	}
+
+	.categoria svg {
+		width: 30px;
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.categorias {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+
+
+
+/*! =================================================*/
+/*! ============= modificacion 15/09 GS ============= */
+/*! =================================================*/
+
+.contenedor-cardContainer{
+	width:100%; 
+	margin:auto;
+	display:flex; 
+	justify-content:space-evenly;
+}
+.nav-link:hover{
+	color:rgb(231, 47, 47) !important;
+	transition:color .3s;
+}
+.nav-link{
+	transition:color  .3s;
+}
+
+
+@media only screen and (max-width: 799px){
+
+	.navbar{
+		position:fixed !important;
+		top:0 !important;
+		left:0 !important;
+		width:100% !important;
+    	box-shadow: 0 7px 20px 0 rgb(0 0 0 / 20%), 0 4px 10px 0 rgb(0 0 0 / 20%) !important;
+
+		
+	}
+
+	
+}
+
+/*! =================================================*/
+/*! ============= modificacion 30/09 GS ============= */
+/*! =================================================*/
+
+
+/* ------------------- Menu de Navegacion -------------------*/
+
+/* clase para que se coloreen los items al llegar a su respectiva seccion */
+.active-item{           /*Para utilizar en js*/
+    color:var(--bs-danger) !important;
+}
+
+/* Asignando animacion al menu */
+.navbar.floating#navbar {
+    animation: popDown 0.5s;
+}
+/* Animacion para que el menu descienda con una transicion */
+@keyframes popDown {
+    0% {
+      transform: translateY(-100px);
+    }
+  }
+/* -------------------Seccion de Clientes -------------------*/
+
+.clientes{
+	overflow:hidden;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:10px;
+	height: 200px; 
+	width: 200px; 
+	border-radius:100px;
+	background: radial-gradient(#ffffff, #00a8f3); 
+}
+.constructora_comercial{
+	transition: all .4s ease;
+	padding: 20px;
+	margin:auto;
+}
+.constructora_comercial:hover{
+	transform:scale (1.05);
+	transition: all .4s ease;
+	padding: 15px;
+}
+
+/* -------------------Seccion de Integrantes -------------------*/
+
+.list-inline-item a{
+	transition: color .3s;
+}
+.list-inline-item a:hover{
+	text-decoration:none;
+	transition: color .3s;
+}
+
+.social-w3-agileits a{
+	transition: color .3s;
+}
+.social-w3-agileits a:hover{
+	text-decoration:none;
+	transition: color .3s;
+}
+
+a{
+	transition: color .3s;
+}
+a:hover{
+	text-decoration: none;
+	transition: color .3s;
+}
+.copyright-agileits>a:hover{
+	color:rgb(33 132 245) !important;
+}
+
+.team-card{
+	transition:1s;
+}
+.team-card:hover{
+	transform:translateY(-8px);
+	transition:1s ease;
+}
+
+/* -------------------Seccion de Servicios -------------------*/
+.card{
+	transition:.4s;
+	
+}
+.card:hover{
+	transition:.4s;
+}
+
+
+/* -------------------Seccion de Inicio -------------------*/
+
+	/* Animacion de flotar - No funciona aun 1/10 */
+.n7-title{
+	animation: flotar 3s ease infinite;
+	animation-delay:1s;
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(9px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
